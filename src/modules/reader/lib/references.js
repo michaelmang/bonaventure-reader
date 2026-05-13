@@ -457,10 +457,11 @@ function getScriptureMatches(text) {
   for (const phrase of PHRASE_REFERENCES) {
     for (const match of text.matchAll(phrase.pattern)) {
       const shouldCloseQuote = phrase.closeQuote && /^["“]/.test(match[0]);
+      const displayMatch = getPhraseDisplayMatch(text, match);
       matches.push({
         type: 'scripture',
-        index: match.index,
-        end: match.index + match[0].length,
+        index: displayMatch.index,
+        end: displayMatch.end,
         label: `${phrase.book} ${phrase.chapter}:${phrase.verse}${phrase.endVerse ? `-${phrase.endVerse}` : ''}`,
         book: phrase.book,
         chapter: phrase.chapter,
@@ -468,7 +469,7 @@ function getScriptureMatches(text) {
         endVerse: phrase.endVerse,
         sourceText: phrase.sourceText,
         inferred: true,
-        raw: shouldCloseQuote ? `${match[0].replace(/\.*$/, '.')}"` : match[0]
+        raw: shouldCloseQuote ? `${displayMatch.raw.replace(/\.*$/, '.')}"` : displayMatch.raw
       });
     }
   }
@@ -498,6 +499,29 @@ function getScriptureMatches(text) {
   }
 
   return removeLessPreciseScripture(removeOverlaps(matches));
+}
+
+function getPhraseDisplayMatch(text, match) {
+  let index = match.index;
+  let end = match.index + match[0].length;
+
+  if (index > 0 && /["“]/.test(text[index - 1])) {
+    index -= 1;
+  }
+
+  while (end < text.length && /[.,;:!?]/.test(text[end])) {
+    end += 1;
+  }
+
+  while (end < text.length && /["”]/.test(text[end])) {
+    end += 1;
+  }
+
+  return {
+    index,
+    end,
+    raw: text.slice(index, end)
+  };
 }
 
 function getReferenceKey(ref) {
