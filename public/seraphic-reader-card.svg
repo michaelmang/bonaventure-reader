@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1f1a15"/>
+  <rect x="32" y="32" width="1136" height="566" fill="#fbf7ee"/>
+  <rect x="66" y="66" width="1068" height="498" fill="none" stroke="#d7c8ae" stroke-width="3"/>
+  <rect x="96" y="96" width="90" height="90" fill="#fff9ee" stroke="#9d6a35" stroke-width="3"/>
+  <text x="141" y="158" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700" fill="#7f4d20">B</text>
+  <text x="220" y="116" font-family="Avenir, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="8" fill="#8d5525">A READER FOR BONAVENTURE</text>
+  <line x1="220" y1="136" x2="1080" y2="136" stroke="#a16b35" stroke-width="3"/>
+  <text x="96" y="284" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#28231d">The Seraphic Reader</text>
+  <text x="96" y="374" font-family="Avenir, Helvetica, Arial, sans-serif" font-size="31" fill="#625b50">
+    <tspan x="96" dy="0">Read Bonaventure’s Collations with scripture,</tspan>
+    <tspan x="96" dy="42">Latin text, authorities, and references close at hand.</tspan>
+  </text>
+  <text x="96" y="522" font-family="Avenir, Helvetica, Arial, sans-serif" font-size="27" font-weight="800" fill="#8d5525">Collations on the Six Days</text>
+</svg>
